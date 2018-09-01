@@ -50,13 +50,7 @@ def get_globus_client():
     with open('/credentials/client_secret', 'r') as f:
         client_secret = f.read()
 
-    confidential_client = globus_sdk.ConfidentialAppAuthClient(client_id=client_id, client_secret=client_secret)
-
-    scopes = "urn:globus:auth:scopes:transfer.api.globus.org:all"
-    cc_authorizer = globus_sdk.ClientCredentialsAuthorizer(
-        confidential_client, scopes)
-    # create a new client
-    transfer_client = globus_sdk.TransferClient(authorizer=cc_authorizer)
+    transfer_client = globus_sdk.TransferClient(authorizer=globus_sdk.BasicAuthorizer(client_id, client_secret))
 
     return transfer_client
 
