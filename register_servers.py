@@ -8,7 +8,7 @@ K8S_NAMESPACE = os.environ['K8S_NAMESPACE']
 
 
 def get_dtn_pod_ips(label_selector):
-    config.load_kube_config()
+    config.load_incluster_config()
     v1 = client.CoreV1Api()
     pods = v1.list_namespaced_pod(K8S_NAMESPACE, label_selector=label_selector)
 
