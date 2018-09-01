@@ -14,7 +14,7 @@ def get_dtn_pod_ips(label_selector):
 
     ipSet = set()
 
-    active_pods = filter(lambda p: p.metadata.deletionTimestamp is None, pods.items)
+    active_pods = filter(lambda p: p.metadata.deletion_timestamp is None, pods.items)
     for pod in active_pods:
         ipSet.add(pod.status.pod_ip)
 
