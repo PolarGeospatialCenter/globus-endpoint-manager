@@ -52,7 +52,7 @@ def get_globus_client():
 
     confidential_client = globus_sdk.ConfidentialAppAuthClient(client_id=client_id, client_secret=client_secret)
 
-    scopes = "urn:globus:auth:scopes:transfer.api.globus.org:all"
+    scopes = "urn:globus:auth:scope:transfer.api.globus.org:all"
     cc_authorizer = globus_sdk.ClientCredentialsAuthorizer(
         confidential_client, scopes)
     # create a new client
