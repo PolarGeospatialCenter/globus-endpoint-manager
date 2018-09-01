@@ -6,4 +6,4 @@ COPY . /src
 WORKDIR /src
 RUN pipenv install
 
-CMD ["/src/register_servers.py"]
+CMD ["pipenv", "run", "/src/register_servers.py"]

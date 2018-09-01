@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import globus_sdk
 from kubernetes import client, config
