@@ -40,6 +40,10 @@ def update_endpoint_ips(globus_client, endpoint_id, ips):
         new_server['DATA_TYPE'] = 'server'
         new_server['hostname'] = ip
         new_server['subject'] = os.environ['GLOBUS_CERT_SUBJECT']
+        new_server['incoming_data_port_start'] = 50000
+        new_server['incoming_data_port_end'] = 51000
+        new_server['outgoing_data_port_start'] = 50000
+        new_server['outgoing_data_port_end'] = 51000
         result = globus_client.add_endpoint_server(endpoint_id, new_server)
 
 
